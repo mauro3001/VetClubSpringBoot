@@ -55,8 +55,9 @@ public class SecurityConfig {
                 .disable()
                 .authorizeRequests(
                         (requests) -> requests
-                                .requestMatchers("/auth/**")
+                                .requestMatchers("/auth/**", "/api/profesionales")
                                 .permitAll()
+                                .requestMatchers(HttpMethod.OPTIONS).permitAll()
                                 .anyRequest()
                                 .authenticated()
                 )

@@ -43,7 +43,7 @@ public class VetController {
     }
 
     @PostMapping("/usuario/agregar")
-    public ResponseEntity<Usuario> agregar(@RequestBody Usuario usuario){
+    public ResponseEntity<Usuario> agregar(@RequestBody Usuario usuario) throws Exception {
         /*Set<Rol>usuarioRol = new HashSet<>();
 
         Rol rol= new Rol();
@@ -58,7 +58,7 @@ public class VetController {
     }
 
     @PutMapping("/usuario/{id_usuario}")
-    public ResponseEntity<Usuario> actualizarUsuario(@PathVariable Usuario id_usuario, @RequestBody Usuario detalles){
+    public ResponseEntity<Usuario> actualizarUsuario(@PathVariable Usuario id_usuario, @RequestBody Usuario detalles) throws Exception {
         Usuario usuario = usuarioService.encontrarUsuario(id_usuario);
 
         usuario.setCorreo(detalles.getCorreo());

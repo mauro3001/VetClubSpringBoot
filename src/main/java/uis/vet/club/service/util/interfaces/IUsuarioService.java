@@ -7,7 +7,7 @@ import java.util.List;
 public interface IUsuarioService {
     public List<Usuario> listarUsuarios();
 
-    public Usuario guardar(Usuario usuario);
+    public Usuario guardar(Usuario usuario) throws Exception;
 
     public void eliminar(Usuario usuario);
 

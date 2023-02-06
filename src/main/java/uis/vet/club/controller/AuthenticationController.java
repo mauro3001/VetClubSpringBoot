@@ -19,6 +19,8 @@ import uis.vet.club.security.util.JwtUtil;
 import uis.vet.club.service.util.impl.UserDao;
 import uis.vet.club.service.util.impl.UserDetailsServiceImpl;
 
+import java.security.Principal;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/auth")
@@ -50,6 +52,11 @@ public class AuthenticationController {
         }
         return ResponseEntity.status(400).body("Algun error ha ocurrido");
     }
+
+    /*@GetMapping("/usuario-actual")
+    public Usuario obtenerUsuarioActual(Principal usuario){
+        return (Usuario) this.userDetailsService.loadUserByUsername(usuario.getName());
+    }*/
 
 /*
     @PostMapping("/token")
