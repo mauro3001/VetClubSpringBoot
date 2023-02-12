@@ -79,7 +79,6 @@ public class VetController {
         }
         return new ResponseEntity<Usuario>(usr, HttpStatus.OK);
     }
-
     @GetMapping("/profesionales")
     public List<Profesional> listarProfesionales(){
         return profesionalService.listarPro();
@@ -100,10 +99,10 @@ public class VetController {
     public ResponseEntity<Profesional> acutalizarPro(@PathVariable Profesional id_profesional, @RequestBody Profesional detalles){
         Profesional pro1 = profesionalService.encontrarPro(id_profesional);
 
-        pro1.setTipoProfesional(pro1.getTipoProfesional());
+        pro1.setTipoProfesional(detalles.getTipoProfesional());
         pro1.setNombre(detalles.getNombre());
+        pro1.setCorreo(detalles.getCorreo());
         pro1.setNickname(detalles.getNickname());
-        pro1.setCorreo(detalles.getNickname());
 
         Profesional proActualizado = profesionalService.guardar(pro1);
         return new ResponseEntity<Profesional>(proActualizado,HttpStatus.OK);
@@ -174,6 +173,21 @@ public class VetController {
     @GetMapping("/cita/{id_cita}")
     public Cita encontrarCita(@PathVariable Cita id_cita){
         return citaService.encontrarCita(id_cita);
+    }
+
+    @PutMapping("/cita/{id_cita}")
+    public ResponseEntity<Cita> actualizarCita(@PathVariable Cita id_cita, @RequestBody Cita detalles){
+        Cita cita = citaService.encontrarCita(id_cita);
+
+        cita.setProfesional(detalles.getProfesional());
+        cita.setTipoMascota(detalles.getTipoMascota());
+        cita.setTipoProceso(detalles.getTipoProceso());
+        cita.setNickname(detalles.getNickname());
+        cita.setFecha(detalles.getFecha());
+        cita.setHora(detalles.getHora());
+
+        Cita citaAcutualizada = citaService.guardarCita(cita);
+        return new ResponseEntity<Cita>(citaAcutualizada, HttpStatus.OK);
     }
 
     @GetMapping("/cita/eliminar/{id_cita}")

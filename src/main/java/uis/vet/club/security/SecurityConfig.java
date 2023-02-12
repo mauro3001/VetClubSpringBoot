@@ -55,7 +55,7 @@ public class SecurityConfig {
                 .disable()
                 .authorizeRequests(
                         (requests) -> requests
-                                .requestMatchers("/auth/**", "/api/profesionales")
+                                .requestMatchers("/auth/**", "/api/profesionales", "/api/cita/agregar")
                                 .permitAll()
                                 .requestMatchers(HttpMethod.OPTIONS).permitAll()
                                 .anyRequest()
@@ -85,8 +85,8 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-        //return new BCryptPasswordEncoder();
+        //return NoOpPasswordEncoder.getInstance();
+        return new BCryptPasswordEncoder();
     }
 
 /*

@@ -23,14 +23,15 @@ public class UsuarioImpl implements IUsuarioService {
     @Override
     @Transactional
     public Usuario guardar(Usuario usuario) throws Exception{
-        Usuario usuario1 = usuarioRepository.findByUsername(usuario.getUsername());
+        /*Usuario usuario1 = usuarioRepository.findByUsername(usuario.getUsername());
 
         if(usuario1 != null){
             System.out.println("Ese nombre de usuario ya existe");
             throw new Exception("Ese nombre de usuario ya existe");
         }else{
             usuario1 = usuarioRepository.save(usuario);
-        }
+        }*/
+        Usuario usuario1 = usuarioRepository.save(usuario);
         return usuario1;
     }
 

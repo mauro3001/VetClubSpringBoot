@@ -20,13 +20,13 @@ public class Mascota implements Serializable {
     @Column(name = "id_mascota", nullable = false)
     private Long id_mascota;
 
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(name = "tipo_mascota")
-    private TipoMascota tipoMascota;
+    private TipoMascota tipoMascota;*/
 
-    /*Por si se quiere solamente el id_tipo_mascota
+    //Por si se quiere solamente el id_tipo_mascota
     @Column(name = "tipo_mascota")
-    private Long tipoMascota;*/
+    private Long tipoMascota;
 
 
     @Column(name = "nombre")

@@ -24,17 +24,17 @@ public class Cita implements Serializable {
     @Column(name = "id_cita", nullable = false)
     private Long id_cita;
 
-    @OneToOne
+    //@OneToOne
     @JoinColumn(name = "profesional", nullable = false)
-    private Profesional profesional;
+    private Long profesional;
 
-    @OneToOne
+    //@OneToOne
     @JoinColumn(name = "tipo_mascota", nullable = false)
-    private TipoMascota tipoMascota;
+    private Long tipoMascota;
 
-    @OneToOne
+    //@OneToOne
     @JoinColumn(name = "tipo_proceso", nullable = false)
-    private TipoProceso tipoProceso;
+    private Long tipoProceso;
 
     @Column(name = "nickname")
     private String nickname;
